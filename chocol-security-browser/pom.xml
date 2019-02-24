@@ -17,6 +17,7 @@
             <artifactId>chocol-security-core</artifactId>
             <version>${chocol.security.version}</version>
         </dependency>
+        <!--集群环境下的session管理-->
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session</artifactId>

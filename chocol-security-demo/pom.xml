@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.chocol.security</groupId>
-            <artifactId>chocol-security-core</artifactId>
+            <artifactId>chocol-security-browser</artifactId>
             <version>${chocol.security.version}</version>
         </dependency>
         <dependency>
