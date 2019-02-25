@@ -53,6 +53,7 @@ public class UserControllerTest {
 
     @Test
     public void whenGenInfoFail() throws Exception {
+        //正则测试
         mockMvc.perform(MockMvcRequestBuilders.get("/user/a")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().is4xxClientError());
