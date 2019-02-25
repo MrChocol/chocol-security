@@ -17,6 +17,7 @@
 
     <!--控制子模块引用的版本-->
     <properties>
+        <skipTests>true</skipTests>
         <chocol.security.version>1.0-SNAPSHOT</chocol.security.version>
     </properties>
 

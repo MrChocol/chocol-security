@@ -60,6 +60,7 @@
                 <executions>
                     <execution>
                         <goals>
+                            <!--重新打包-->
                             <goal>repackage</goal>
                         </goals>
                     </execution>
