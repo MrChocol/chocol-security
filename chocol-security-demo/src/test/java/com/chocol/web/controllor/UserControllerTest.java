@@ -29,10 +29,10 @@ public class UserControllerTest {
     @Test
     public void whenQuerySuccess() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/user")
-                .param("username","zhangsan")
-                .param("age","20")
-                .param("ageTo","60")
-                .param("xxx","yyy")
+                .param("username", "zhangsan")
+                .param("age", "20")
+                .param("ageTo", "60")
+                .param("xxx", "yyy")
                 //PageAble 对象参数
 //                .param("page","3")
 //                .param("size","10")
@@ -41,5 +41,20 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 //语法可参照https://github.com/json-path/JsonPath $--原数据
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3));
+    }
+
+    @Test
+    public void whenGenInfoSuccess() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/user/1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("zhangsan"));
+    }
+
+    @Test
+    public void whenGenInfoFail() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/user/a")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().is4xxClientError());
     }
 }

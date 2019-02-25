@@ -8,6 +8,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,5 +21,13 @@ public class UserController {
         System.out.println(ReflectionToStringBuilder.toString(condition, ToStringStyle.MULTI_LINE_STYLE));
         System.out.println(pageable);
         return CollectionUtil.newArrayList(new User(), new User(), new User());
+    }
+
+    @GetMapping("/user/{userId:\\d+}")  //正则
+    public User getInfo(@PathVariable String userId){
+        System.out.println(userId);
+        User user = new User();
+        user.setUsername("zhangsan");
+        return user;
     }
 }
